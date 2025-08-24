@@ -9,17 +9,37 @@
 <body>
   <main class="container">
     <h1>HIIT Treadmill Lap Calculator</h1>
-    <p class="muted">Lap structure: 4 min + six 1-min intervals = 10 min lap (editable). Speeds in km/h.</p>
+  <p class="muted">Lap structure: 2 min + 2 min + six 1-min intervals = 10 min lap (editable). Speeds in km/h.</p>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <div class="overview-block">
+        <div><strong>Total distance (all laps):</strong> <span id="overviewDistance">—</span></div>
+        <div><strong>Total time (all laps):</strong> <span id="overviewTime">—</span></div>
+  <div><strong>Average pace (all laps):</strong> <span id="overviewAvgPace">—</span></div>
+  <div><strong>Goal distance:</strong> <span id="goalDistanceInfo">—</span></div>
+  <div><strong>Goal reached at:</strong> <span id="goalReachedAt">—</span></div>
+      </div>
+      <div class="overview-controls" style="margin-top:8px">
+        <label><input type="checkbox" id="limitDistance"> Limit by distance</label>
+        <label>Max distance (km): <input type="number" id="targetDistance" min="0" step="0.01" placeholder="5.00"></label>
+        <label><input type="checkbox" id="autoIncrement"> Auto-increment speeds in lap</label>
+        <label>Step (+km/h per period): <input type="number" id="autoIncrementStep" min="0" step="0.1" value="0.5" style="width:70px"></label>
+        <label><input type="checkbox" id="propagateAutoIncrement"> Propagate to existing laps</label>
+      </div>
+    </section>
 
     <section class="controls">
-      <div class="row">
-        <label>Laps: <input type="number" id="lapsCount" min="1" value="1"></label>
-        <label><input type="checkbox" id="replicateLap" checked> Replicate base lap for all laps</label>
-      </div>
+    <div class="row">
+  <label>Laps: <input type="number" id="lapsCount" min="1" value="1"></label>
+  <label><input type="checkbox" id="replicateLap" checked> Replicate base lap for all laps</label>
+  <label>Target pace (mm:ss /km): <input type="text" id="targetPace" placeholder="05:00"></label>
+    </div>
       <div class="row">
         <button id="addLapBtn">Add lap (when not replicating)</button>
-        <button id="calcBtn" class="primary">Calculate</button>
-        <button id="resetBtn">Reset</button>
+  <button id="calcBtn" class="primary">Calculate</button>
+  <button id="downloadBtn">Download CSV</button>
+  <button id="resetBtn">Reset</button>
       </div>
     </section>
 
@@ -28,9 +48,16 @@
       <p class="muted">Interval durations (min) and speeds (km/h) for the base lap.</p>
       <table id="intervalsTbl">
         <thead>
-          <tr><th>#</th><th>Duration (min)</th><th>Speed (km/h)</th><th>Distance (km)</th></tr>
+          <tr><th>#</th><th>Duration (min)</th><th>Speed (km/h)</th><th>Pace (min/km)</th><th>Distance (km)</th></tr>
         </thead>
         <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"><strong>Base lap average</strong></td>
+            <td id="baseLapAvgPace">—</td>
+            <td id="baseLapTotalDist">—</td>
+          </tr>
+        </tfoot>
       </table>
     </section>
 
