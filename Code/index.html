@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HIIT Treadmill Lap Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>HIIT Treadmill Lap Calculator</h1>
+    <p class="muted">Lap structure: 4 min + six 1-min intervals = 10 min lap (editable). Speeds in km/h.</p>
+
+    <section class="controls">
+      <div class="row">
+        <label>Laps: <input type="number" id="lapsCount" min="1" value="1"></label>
+        <label><input type="checkbox" id="replicateLap" checked> Replicate base lap for all laps</label>
+      </div>
+      <div class="row">
+        <button id="addLapBtn">Add lap (when not replicating)</button>
+        <button id="calcBtn" class="primary">Calculate</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section id="baseLap">
+      <h2>Base lap intervals</h2>
+      <p class="muted">Interval durations (min) and speeds (km/h) for the base lap.</p>
+      <table id="intervalsTbl">
+        <thead>
+          <tr><th>#</th><th>Duration (min)</th><th>Speed (km/h)</th><th>Distance (km)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="extraLaps" style="display:none">
+      <h2>Lap-specific intervals</h2>
+      <p class="muted">Edit intervals for each lap when not replicating the base lap.</p>
+      <div id="lapsContainer"></div>
+    </section>
+
+    <section id="results" style="display:none">
+      <h2>Results</h2>
+      <div id="summary"></div>
+      <details open>
+        <summary>Breakdown</summary>
+        <div id="breakdown"></div>
+      </details>
+    </section>
+
+    <footer class="note">Tip: speeds are km/h. Distances computed = speed * (minutes / 60).</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+:root{--bg:#f7f9fc;--card:#fff;--muted:#6b7280;--accent:#1f7aec}
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}
+body{background:var(--bg);color:#0f172a;margin:0;padding:24px}
+.container{max-width:920px;margin:0 auto;background:var(--card);padding:24px;border-radius:10px;box-shadow:0 6px 18px rgba(12,20,40,0.06)}
+h1{margin:0 0 8px;font-size:22px}
+.muted{color:var(--muted);font-size:13px;margin:4px 0 12px}
+.controls .row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+input[type="number"], input[type="text"], select{padding:8px;border:1px solid #e6edf6;border-radius:6px}
+button{padding:8px 12px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);background:#fff;cursor:pointer}
+button.primary{background:var(--accent);color:#fff;border-color:transparent}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{padding:8px;text-align:left;border-bottom:1px solid #eef4ff}
+th{background:#fbfdff;font-weight:600}
+.interval-input{width:100px}
+.lap-card{border:1px solid #eef4ff;padding:10px;border-radius:8px;margin-bottom:10px;background:#fbfdff}
+.summary-block{padding:10px;border-radius:8px;background:#f1f7ff;border:1px solid #e7f0ff}
+.note{margin-top:12px;color:var(--muted);font-size:13px}
